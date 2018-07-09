@@ -13,7 +13,7 @@
     <groupId>com.serrodcal.esb</groupId>
     <artifactId>mediator</artifactId>
     <version>0.1.0</version>
-    <packaging>bundle</packaging>
+    <!--packaging>bundle</packaging-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,7 +24,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>3.5.0</version>
@@ -46,16 +46,50 @@
                         <Embed-Transitive>true</Embed-Transitive>
                     </instructions>
                 </configuration>
+            </plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                  <execution>
+                    <phase>package</phase>
+                    <goals>
+                      <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <relocations>
+                            <relocation>
+                                <pattern>org.apache.synapse</pattern>
+                                <shadedPattern>org.apache.synapse.shaded</shadedPattern>
+                            </relocation>
+                        </relocations>
+                        <artifactSet></artifactSet>
+                    </configuration>
+                  </execution>
+                </executions>
+                <configuration>
+                    <fileName>mediator-0.1.0</fileName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.synapse</groupId>
+                <artifactId>synapse-core</artifactId>
+                <version>2.1.7-wso2v7</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.synapse</groupId>
