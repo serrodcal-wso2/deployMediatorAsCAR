@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artifacts>
+	<artifact name="PhoenixSequence" groupId="com.serrodcal.esb" version="0.1.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+		<file>src/main/synapse-config/sequences/PhoenixSequence.xml</file>
+	</artifact>
+	<artifact name="PhoenixTask" groupId="com.serrodcal.esb" version="0.1.0" type="synapse/task" serverRole="EnterpriseServiceBus">
+		<file>src/main/synapse-config/tasks/PhoenixTask.xml</file>
+	</artifact>
+</artifacts>
