@@ -3,7 +3,7 @@
   <log>
     <property name="*** INSIDE" value="PHOENIX SEQUENCE"/>
   </log>
-  <class name="com.ing.modelbank.esb.mediator.phoenix.PhoenixMediator"/>
+  <class name="com.serrodcal.esb.mediator.phoenix.PhoenixMediator"/>
   <log>
     <property name="*** OUTSIDE" value="PHOENIX SEQUENCE"/>
   </log>
